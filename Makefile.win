@@ -1,18 +1,18 @@
 # Project: realpaver
 # Makefile created by Dev-C++ 4.9.9.2
 
-CPP  = g++.exe
-CC   = gcc.exe
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
-RES  = 
-OBJ  = ../realpaver-0.4/src/constant.o ../realpaver-0.4/src/constraint.o ../realpaver-0.4/src/default_interval.o ../realpaver-0.4/src/domain.o ../realpaver-0.4/src/evaluator.o ../realpaver-0.4/src/interval.o ../realpaver-0.4/src/list_domains.o ../realpaver-0.4/src/main.o ../realpaver-0.4/src/narrowing_hullbox.o ../realpaver-0.4/src/narrowing_newton.o ../realpaver-0.4/src/profile.o ../realpaver-0.4/src/propagation_local.o ../realpaver-0.4/src/propagation_strong.o ../realpaver-0.4/src/search.o ../realpaver-0.4/src/union_interval.o ../realpaver-0.4/src/variable.o ../realpaver-0.4/src/parser.o $(RES)
-LINKOBJ  = ../realpaver-0.4/src/constant.o ../realpaver-0.4/src/constraint.o ../realpaver-0.4/src/default_interval.o ../realpaver-0.4/src/domain.o ../realpaver-0.4/src/evaluator.o ../realpaver-0.4/src/interval.o ../realpaver-0.4/src/list_domains.o ../realpaver-0.4/src/main.o ../realpaver-0.4/src/narrowing_hullbox.o ../realpaver-0.4/src/narrowing_newton.o ../realpaver-0.4/src/profile.o ../realpaver-0.4/src/propagation_local.o ../realpaver-0.4/src/propagation_strong.o ../realpaver-0.4/src/search.o ../realpaver-0.4/src/union_interval.o ../realpaver-0.4/src/variable.o ../realpaver-0.4/src/parser.o $(RES)
-LIBS =  -L"C:/Dev-Cpp/lib"  
-INCS =  -I"C:/Dev-Cpp/include" 
+RES  =  
+OBJ  =  parser.o lexer.o  constant.o constraint.o default_interval.o domain.o evaluator.o interval.o list_domains.o main.o narrowing_hullbox.o narrowing_newton.o profile.o propagation_local.o propagation_strong.o search.o union_interval.o variable.o parser.c lexer.c $(RES)
+LINKOBJ  =  parser.o lexer.o constant.o constraint.o default_interval.o domain.o evaluator.o interval.o list_domains.o main.o narrowing_hullbox.o narrowing_newton.o profile.o propagation_local.o propagation_strong.o search.o union_interval.o variable.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  -g3 
+INCS =  -I"C:/Dev-Cpp/include" -g3
 CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
 BIN  = realpaver.exe
-CXXFLAGS = $(CXXINCS)  
-CFLAGS = $(INCS)  
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS) -g3
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -26,53 +26,62 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o "realpaver.exe" $(LIBS)
 
-../realpaver-0.4/src/constant.o: ../realpaver-0.4/src/constant.c
-	$(CC) -c ../realpaver-0.4/src/constant.c -o ../realpaver-0.4/src/constant.o $(CFLAGS)
+constant.o: constant.c
+	$(CC) -c constant.c -o constant.o $(CFLAGS)
 
-../realpaver-0.4/src/constraint.o: ../realpaver-0.4/src/constraint.c
-	$(CC) -c ../realpaver-0.4/src/constraint.c -o ../realpaver-0.4/src/constraint.o $(CFLAGS)
+constraint.o: constraint.c
+	$(CC) -c constraint.c -o constraint.o $(CFLAGS)
 
-../realpaver-0.4/src/default_interval.o: ../realpaver-0.4/src/default_interval.c
-	$(CC) -c ../realpaver-0.4/src/default_interval.c -o ../realpaver-0.4/src/default_interval.o $(CFLAGS)
+default_interval.o: default_interval.c
+	$(CC) -c default_interval.c -o default_interval.o $(CFLAGS)
 
-../realpaver-0.4/src/domain.o: ../realpaver-0.4/src/domain.c
-	$(CC) -c ../realpaver-0.4/src/domain.c -o ../realpaver-0.4/src/domain.o $(CFLAGS)
+domain.o: domain.c
+	$(CC) -c domain.c -o domain.o $(CFLAGS)
 
-../realpaver-0.4/src/evaluator.o: ../realpaver-0.4/src/evaluator.c
-	$(CC) -c ../realpaver-0.4/src/evaluator.c -o ../realpaver-0.4/src/evaluator.o $(CFLAGS)
+evaluator.o: evaluator.c
+	$(CC) -c evaluator.c -o evaluator.o $(CFLAGS)
 
-../realpaver-0.4/src/interval.o: ../realpaver-0.4/src/interval.c
-	$(CC) -c ../realpaver-0.4/src/interval.c -o ../realpaver-0.4/src/interval.o $(CFLAGS)
+interval.o: interval.c
+	$(CC) -c interval.c -o interval.o $(CFLAGS)
 
-../realpaver-0.4/src/list_domains.o: ../realpaver-0.4/src/list_domains.c
-	$(CC) -c ../realpaver-0.4/src/list_domains.c -o ../realpaver-0.4/src/list_domains.o $(CFLAGS)
+list_domains.o: list_domains.c
+	$(CC) -c list_domains.c -o list_domains.o $(CFLAGS)
 
-../realpaver-0.4/src/main.o: ../realpaver-0.4/src/main.c
-	$(CC) -c ../realpaver-0.4/src/main.c -o ../realpaver-0.4/src/main.o $(CFLAGS)
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
 
-../realpaver-0.4/src/narrowing_hullbox.o: ../realpaver-0.4/src/narrowing_hullbox.c
-	$(CC) -c ../realpaver-0.4/src/narrowing_hullbox.c -o ../realpaver-0.4/src/narrowing_hullbox.o $(CFLAGS)
+narrowing_hullbox.o: narrowing_hullbox.c
+	$(CC) -c narrowing_hullbox.c -o narrowing_hullbox.o $(CFLAGS)
 
-../realpaver-0.4/src/narrowing_newton.o: ../realpaver-0.4/src/narrowing_newton.c
-	$(CC) -c ../realpaver-0.4/src/narrowing_newton.c -o ../realpaver-0.4/src/narrowing_newton.o $(CFLAGS)
+narrowing_newton.o: narrowing_newton.c
+	$(CC) -c narrowing_newton.c -o narrowing_newton.o $(CFLAGS)
 
-../realpaver-0.4/src/profile.o: ../realpaver-0.4/src/profile.c
-	$(CC) -c ../realpaver-0.4/src/profile.c -o ../realpaver-0.4/src/profile.o $(CFLAGS)
+profile.o: profile.c
+	$(CC) -c profile.c -o profile.o $(CFLAGS)
 
-../realpaver-0.4/src/propagation_local.o: ../realpaver-0.4/src/propagation_local.c
-	$(CC) -c ../realpaver-0.4/src/propagation_local.c -o ../realpaver-0.4/src/propagation_local.o $(CFLAGS)
+propagation_local.o: propagation_local.c
+	$(CC) -c propagation_local.c -o propagation_local.o $(CFLAGS)
 
-../realpaver-0.4/src/propagation_strong.o: ../realpaver-0.4/src/propagation_strong.c
-	$(CC) -c ../realpaver-0.4/src/propagation_strong.c -o ../realpaver-0.4/src/propagation_strong.o $(CFLAGS)
+propagation_strong.o: propagation_strong.c
+	$(CC) -c propagation_strong.c -o propagation_strong.o $(CFLAGS)
 
-../realpaver-0.4/src/search.o: ../realpaver-0.4/src/search.c
-	$(CC) -c ../realpaver-0.4/src/search.c -o ../realpaver-0.4/src/search.o $(CFLAGS)
+search.o: search.c
+	$(CC) -c search.c -o search.o $(CFLAGS)
 
-../realpaver-0.4/src/union_interval.o: ../realpaver-0.4/src/union_interval.c
-	$(CC) -c ../realpaver-0.4/src/union_interval.c -o ../realpaver-0.4/src/union_interval.o $(CFLAGS)
+union_interval.o: union_interval.c
+	$(CC) -c union_interval.c -o union_interval.o $(CFLAGS)
 
-../realpaver-0.4/src/variable.o: ../realpaver-0.4/src/variable.c
-	$(CC) -c ../realpaver-0.4/src/variable.c -o ../realpaver-0.4/src/variable.o $(CFLAGS)
+variable.o: variable.c
+	$(CC) -c variable.c -o variable.o $(CFLAGS)
 
-../realpaver-0.4/src/parser.o: ../realpaver-0.4/src/parser.c
-	$(CC) -c ../realpaver-0.4/src/parser.c -o ../realpaver-0.4/src/parser.o $(CFLAGS)
+parser.o: parser.c
+	$(CC) -c parser.c -o parser.o $(CFLAGS)
+
+lexer.o: lexer.c
+	$(CC) -c lexer.c -o lexer.o $(CFLAGS)
+
+parser.c: parser.y
+	bison -d -oparser.c parser.y
+
+lexer.c: lexer.l
+	flex -olexer.c lexer.l

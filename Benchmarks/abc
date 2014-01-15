@@ -1,0 +1,4 @@
+Constants   n = 12,
+            p = 7;
+Variables   x in [0,+oo[;
+Constraints x^p = n;

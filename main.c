@@ -19,11 +19,6 @@
 #include "search.h"
 #include "main.h"
 
-/* Make it work with bison and flex*/
-extern FILE *yyin;
-extern FILE *yyout;
-extern int yyparse(void);
-
 
 /* Structures used to represent a constraint system */
 IBVariables   variables;           /* array of constrained variables */

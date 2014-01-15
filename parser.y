@@ -16,10 +16,15 @@
 
 #include "search.h"
 
-#define YYINITDEPTH 180000  /* SIZE OF THE PARSER STACK */
-#define YYMAXDEPTH  180000
-extern char *yytext;
+#define YYINITDEPTH 18000  /* SIZE OF THE PARSER STACK */
+#define YYMAXDEPTH  18000
 extern FILE *yyin;
+extern char *yytext; /* Current symbol for error reporting. */
+
+extern int yylex(void); /* Lexical analyzer function. */
+extern int yyparse(void); /* Parser function. */
+
+int yydebug=0;
 
 
 /*--- global variables ---*/
@@ -102,7 +107,6 @@ long lt;
 %type <str_num>   Number
 %type <str_integ> Integer
 %type <str_float> Float
-
 
 %token PRAGMACONSTANTS
 %token PRAGMADOMAINS
@@ -191,7 +195,6 @@ long lt;
 %token ACOSH
 %token ASINH
 %token ATANH
-%token IDENT
 %token PREV
 %token SUCC
 %token INTEGERTYPE

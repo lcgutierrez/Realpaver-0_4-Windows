@@ -23,10 +23,15 @@ integer2             {sign}{integer1}
 {integer2}         {return(INTEGER);}
 */
 
-%{
+
+
+
+%{                  
 #include "parser.h"
 #include <stdio.h>
 extern int IByyline;
+extern int yylex(); 
+extern int yyparse();
 %}
 enter                "\n"
 space                [ \t\r]+
